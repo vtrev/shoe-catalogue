@@ -24,7 +24,7 @@ var ShoeFactory = function () {
 
     //shoesData array with shoe objects 
 
-    var shoesData = [new shoe('nike', 'black', 500, 10, 10), new shoe('adidas', 'white', 250, 10, 5)];
+    var shoesData = [new shoe('Nike', 'Black', 500, 10, 10), new shoe('Adidas', 'White', 250, 10, 5), new shoe('Nike', 'White', 750, 8, 6), new shoe('Jordan', 'Pink', 999, 4, 6), new shoe('Adidas', 'Pink', 800, 15, 7)];
 
     var addShoe = function (shoeObject) {
         shoesData.push(new shoe(shoeObject.brand, shoeObject.color, shoeObject.price, shoeObject.qty, shoeObject.size));
@@ -32,61 +32,38 @@ var ShoeFactory = function () {
 
 
     // match the specs and return the  shoe needed by the customer
-    var clearObject = function (object) {
-        this.brand = null;
-        this.size = null;
-        this.color = null;
-    };
     var getShoes = function (specs) {
-        let holdingObject = {};
-        clearObject(holdingObject);
-        let holdingArray = [];
-        for (let i = 0; i < shoesData.length; i++) {
-            let dataIndex = shoesData[i];
-            let specsIndex = Object.keys(specs)[i];
-            if (specs.brand) {
-                if (specs.brand == dataIndex.brand) {
-                    holdingObject['brand'] = specs.brand;
-                };
-            };
-            if (specs.color) {
-                if (specs.color == dataIndex.color) {
-                    holdingObject['color'] = specs.color;
-                };
-            };
 
-            if (specs.size) {
-                if (specs.size == dataIndex.size) {
-                    holdingObject['size'] = specs.size;
-                };
-            };
-            if (holdingObject[specsIndex] == dataIndex[specsIndex]) {
-                holdingArray.push(dataIndex);
+        var filteredShoes = shoesData.filter(function (shoe) {
+
+            let objectIndex = Object.keys(specs);
+
+            if (objectIndex.length == 1) {
+                return shoe[objectIndex[0]] == specs[objectIndex[0]]
+            }
+            if (objectIndex.length == 2) {
+                return shoe[objectIndex[0]] == specs[objectIndex[0]] && shoe[objectIndex[1]] == specs[objectIndex[1]]
+            }
+            if (objectIndex.length == 3) {
+                return shoe[objectIndex[0]] == specs[objectIndex[0]] && shoe[objectIndex[1]] == specs[objectIndex[1]] && shoe[objectIndex[2]] == specs[objectIndex[2]]
             }
 
-        };
-
-        for (let i = 0; i < shoesData.length; i++) {
-
-
-
-        }
-
-
-
-        console.log(holdingArray);
+        });
+        return filteredShoes;
     };
 
     //function for buying and returning items
+
     let doSales = function (specs) {
         let tmpShoe = getShoes(specs);
 
         var buyItem = function () {
-            return tmpShoe.reduce()
+            
+            return tmpShoe[0].reduce()
         };
 
         var returnItem = function () {
-            return tmpShoe.gain()
+            return tmpShoe[0].gain()
         };
         return {
             buyItem,
