@@ -1,35 +1,39 @@
-var ShoeFactory = function () {
+var ShoeFactory = function (shoesData) {
 
-    //a shoe class to create new shoe objects.
-
-    class shoe {
-        constructor(brand, color, price, qty, size) {
-            this.brand = brand;
-            this.color = color;
-            this.price = price;
-            this.qty = qty;
-            this.size = size;
-        }
-        reduce() {
-            this.qty--;
-            return this
-        }
-        gain() {
-            this.qty++;
-            return this
-
-        }
+    let storeShoes = function (shoesToStore) {
+        localStorage.setItem('shoesData', JSON.stringify(shoesToStore));
     };
-    //======================================End of class===========================================================//
 
-    //shoesData array with shoe objects 
+    let getStoredShoes = function () {
+        return JSON.parse(localStorage.getItem('shoesData'));
+    };
 
-    var shoesData = [new shoe('Nike', 'Black', 500, 10, 10), new shoe('Adidas', 'White', 250, 10, 5), new shoe('Nike', 'White', 750, 8, 6), new shoe('Jordan', 'Pink', 999, 4, 6), new shoe('Adidas', 'Pink', 800, 15, 7)];
-
+    //function to more add shoes to the shoeData
     var addShoe = function (shoeObject) {
-        shoesData.push(new shoe(shoeObject.brand, shoeObject.color, shoeObject.price, shoeObject.qty, shoeObject.size));
-    };
 
+        let existingShoe = shoesData.filter(function (shoeItem) {
+            return shoeItem.brand == shoeObject.brand &&
+                shoeItem.color == shoeObject.color &&
+                shoeItem.price == shoeObject.price &&
+                shoeItem.size == shoeObject.size &&
+                shoeItem.qty == shoeObject.qty
+        });
+        if (existingShoe.length !== 0) {
+            console.log('shoe already added');
+            return shoesData
+        } else {
+            shoesData.push({
+                brand: shoeObject.brand,
+                color: shoeObject.color,
+                price: shoeObject.price,
+                qty: shoeObject.qty,
+                size: shoeObject.size
+            });
+            storeShoes(shoesData);
+            return shoesData
+        };
+
+    };
 
     // match the specs and return the  shoe needed by the customer
     var getShoes = function (specs) {
@@ -55,15 +59,22 @@ var ShoeFactory = function () {
     //function for buying and returning items
 
     let doSales = function (specs) {
-        let tmpShoe = getShoes(specs);
 
+        let tmpShoe = getShoes(specs);
         var buyItem = function () {
-            
-            return tmpShoe[0].reduce()
+
+            if (tmpShoe[0].qty > 0) {
+                tmpShoe[0].qty--;
+                storeShoes(shoesData);
+                return tmpShoe
+            }
         };
 
         var returnItem = function () {
-            return tmpShoe[0].gain()
+            if (tmpShoe[0].qty > 0) {
+                tmpShoe[0].qty++;
+                return tmpShoe
+            }
         };
         return {
             buyItem,
@@ -71,12 +82,13 @@ var ShoeFactory = function () {
         }
     }
 
-
-
     return {
+
         getShoes,
         doSales,
-        addShoe
+        addShoe,
+        storeShoes,
+        getStoredShoes
     }
 
 };
