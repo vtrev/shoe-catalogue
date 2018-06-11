@@ -37,20 +37,13 @@ var ShoeFactory = function (shoesData) {
 
     // match the specs and return the  shoe needed by the customer
     var getShoes = function (specs) {
-
         var filteredShoes = shoesData.filter(function (shoe) {
 
             let objectIndex = Object.keys(specs);
-
-            if (objectIndex.length == 1) {
-                return shoe[objectIndex[0]] == specs[objectIndex[0]]
-            }
-            if (objectIndex.length == 2) {
-                return shoe[objectIndex[0]] == specs[objectIndex[0]] && shoe[objectIndex[1]] == specs[objectIndex[1]]
-            }
-            if (objectIndex.length == 3) {
-                return shoe[objectIndex[0]] == specs[objectIndex[0]] && shoe[objectIndex[1]] == specs[objectIndex[1]] && shoe[objectIndex[2]] == specs[objectIndex[2]]
-            }
+            
+            for(let i=0;i<objectIndex.length;i++){
+                return shoe[objectIndex[i]] == specs[objectIndex[i]]
+            };
 
         });
         return filteredShoes;
