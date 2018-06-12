@@ -43,10 +43,14 @@ var ShoeFactory = function (shoesData) {
         var filteredShoes = shoesData.filter(function (shoe) {
 
             let objectIndex = Object.keys(specs);
-
+            let holding = 0;
             for (let i = 0; i < objectIndex.length; i++) {
-                return shoe[objectIndex[i]] == specs[objectIndex[i]]
+                holding += (shoe[objectIndex[i]] == specs[objectIndex[i]])
             };
+
+            if (holding == objectIndex.length) {
+                return true
+            }
 
         });
         return filteredShoes;
