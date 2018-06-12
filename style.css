@@ -248,3 +248,17 @@ p {
 .inline-block {
     display: inline-block;
 }
+
+select {
+    font-family: 'FontAwesome'
+}
+
+.border {
+    border: 1px solid black;
+}
+
+/* .cart {
+    position: relative;
+    left: 158px;
+    bottom: 92px;
+} */

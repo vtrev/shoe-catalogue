@@ -28,6 +28,7 @@ var ShoeFactory = function (shoesData) {
                 brand: shoeObject.brand,
                 color: shoeObject.color,
                 price: shoeObject.price,
+                id: shoeObject.id,
                 qty: shoeObject.qty,
                 size: shoeObject.size
             });

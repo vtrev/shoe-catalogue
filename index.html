@@ -2,7 +2,32 @@
 
 <head>
     <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="js/shoeData.js "></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+    <script type="text/x-template" id="shoesTemplate">
+
+
+
+        {{#each shoes}}
+        <div class=" col-4 inline-block border">
+            Brand : {{this.brand}}
+            <br> Color : {{this.color}}
+            <br>Size : {{this.size}}
+            <br>Price : {{this.price}}
+            <br> Stock Available : {{this.qty}}
+            <br>
+            <br>
+            <button value={{this.id}} onclick="buy(this.value)">
+                <i class="fas fa-shopping-cart">Add To Cart</i>
+            </button>
+            <br>
+        </div>
+        {{/each}}
+        <div>
+    </script>
 
 </head>
 
@@ -10,37 +35,70 @@
     <div class="row">
 
         <div class="col-12 center">
-            <h1>Some bar here with shoes on animation?</h1>
+            <h1>Shoes Store!</h1>
         </div>
     </div>
     <div class="row">
+        <div class="col-12 center">
+            <h3>Pick your specs and hit the search button to find matching shoes</h3>
+        </div>
+    </div>
+    <div class="row center">
         <div class="col-12">
             Brand
-            <select class="inline-block">
-                <option class="" id="">Adibas</option>
-                <option class="" id="">Mike</option>
-                <option class="" id="">Yordan</option>
-                <option class="" id="">Timbs</option>
+
+            <select id="shoeBrand" class="inline-block">
+                <option value="null">Select Size</option>
+                <option class="" id="" value="Adidas">Adidas</option>
+                <option class="" id="" value="Converse">Converse</option>
+                <option class="" id="" value="Fila">Fila</option>
+                <option class="" id="" value="Jordan">Jordan </option>
+                <option class="" id="" value="Nike">Nike</option>
+                <option class="" id="" value="Puma">Puma</option>
+                <option class="" id="" value="Soviet">Soviet</option>
+                <option class="" id="" value="Timberland">Timberland</option>
+                <option class="" id="" value="Vans">Vans</option>
+                <option class="" id="" value="Zara">Zara</option>
 
             </select>
             Color
-            <select class="inline-block">
-                <option class="" id="" value="">Black</option>
-                <option class="" id="" value="">Pink</option>
-                <option class="" id="" value=""></option>
-                <option class="" id="" value=""></option>
+            <select id="shoeColor" class="inline-block select">
+                <option value="null">Select Color</option>
+                <option class="" id="" value="Black">Black</option>
+                <option class="" id="" value="Blue">Blue</option>
+                <option class="" id="" value="Brown">Brown</option>
+                <option class="" id="" value="Cream">Cream</option>
+                <option class="" id="" value="Green">Green</option>
+                <option class="" id="" value="Orange">Orange</option>
+                <option class="" id="" value="Pink">Pink</option>
+                <option class="" id="" value="Purple">Purple</option>
+                <option class="" id="" value="White">White</option>
+                <option class="" id="" value="Yellow">Yellow</option>
+
 
             </select>
             Size
-            <select class="inline-block">
-                <option class="" id="" value="">1</option>
-                <option class="" id="" value="">2</option>
-                <option class="" id="" value="">3</option>
-                <option class="" id="" value="">4</option>
+            <select id="shoeSize" class="inline-block">
+                <option value="null">Select Size</option>
+                <option class="" id="" value="1">1</option>
+                <option class="" id="" value="2">2</option>
+                <option class="" id="" value="3">3</option>
+                <option class="" id="" value="4">4</option>
+                <option class="" id="" value="5">5</option>
+                <option class="" id="" value="6">6</option>
+                <option class="" id="" value="7">7</option>
+                <option class="" id="" value="8">8</option>
+                <option class="" id="" value="9">9</option>
+                <option class="" id="" value="10">10</option>
+                <option class="" id="" value="11">11</option>
+                <option class="" id="" value="12">12</option>
+                <option class="" id="" value="13">13</option>
 
             </select>
-
+            <button id="searchButton">Search</button>
         </div>
+    </div>
+    <div id="shoesArea" class="row center">
     </div>
 
 
