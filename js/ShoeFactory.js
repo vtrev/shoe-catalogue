@@ -12,14 +12,16 @@ var ShoeFactory = function (shoesData) {
     var addShoe = function (shoeObject) {
 
         let existingShoe = shoesData.filter(function (shoeItem) {
-            return shoeItem.brand == shoeObject.brand &&
-                shoeItem.color == shoeObject.color &&
-                shoeItem.price == shoeObject.price &&
-                shoeItem.size == shoeObject.size &&
-                shoeItem.qty == shoeObject.qty
+            let objectIndex = Object.keys(shoeObject);
+
+            for (let i = 0; i < objectIndex.length; i++) {
+                return shoeItem[objectIndex[i]] == shoeObject[objectIndex[i]];
+            };
         });
+        //if the shoe does not exist, the length will be 0
         if (existingShoe.length !== 0) {
             console.log('shoe already added');
+            //just gain the qty
             return shoesData
         } else {
             shoesData.push({
@@ -40,19 +42,17 @@ var ShoeFactory = function (shoesData) {
         var filteredShoes = shoesData.filter(function (shoe) {
 
             let objectIndex = Object.keys(specs);
-            
-            for(let i=0;i<objectIndex.length;i++){
+
+            for (let i = 0; i < objectIndex.length; i++) {
                 return shoe[objectIndex[i]] == specs[objectIndex[i]]
             };
 
         });
         return filteredShoes;
     };
-
     //function for buying and returning items
 
     let doSales = function (specs) {
-
         let tmpShoe = getShoes(specs);
         var buyItem = function () {
 
