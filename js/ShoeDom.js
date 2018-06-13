@@ -3,23 +3,14 @@ shoes = ShoeFactory(shoesArray);
 let searchBtnElement = document.getElementById('searchButton');
 
 
-
-
-function buy(item) {
-    console.log(displayShoes(shoes.doSales({
-        id:item
-    }).buyItem()));
-};
-
 let displayShoes = function (shoesToDisplay) {
-    console.log(shoesToDisplay)
     let shoesData = {};
     shoesData['shoes'] = shoesToDisplay.reverse()
     var shoesDataElement = document.getElementById("shoesArea");
     var shoesDataTemplateSource = document.getElementById("shoesTemplate").innerHTML;
     var shoesTemplate = Handlebars.compile(shoesDataTemplateSource);
-    var platesHTML = shoesTemplate(shoesData);
-    shoesDataElement.innerHTML = platesHTML;
+    var shoesHTML = shoesTemplate(shoesData);
+    shoesDataElement.innerHTML = shoesHTML;
 };
 
 
@@ -37,7 +28,6 @@ searchBtnElement.addEventListener('click', function search() {
     if (shoeSize !== 'null') {
         specs.size = shoeSize
     }
-    console.log(specs);
     displayShoes(shoes.getShoes(specs));
 
 })

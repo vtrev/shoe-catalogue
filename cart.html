@@ -1,0 +1,58 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="js/shoeData.js "></script>
+
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+    <script type="text/x-template" id="cartTemplate">
+        {{#each shoes}}
+        <div class=" col-4 inline-block border">
+            Brand : {{this.brand}}
+            <br> Color : {{this.color}}
+            <br>Size : {{this.size}}
+            <br>Price : {{this.price}}
+            <br> Stock Available : {{this.qty}}
+            <br>
+            <br>
+            <button value={{this.id}} onclick="removeFromCart(this.value)">
+                <i class="fas fa-shopping-cart">Remove from Cart</i>
+            </button>
+            <!-- <button onclick="removeFromCart(this.value).checkout">Buy</button> -->
+            <br>
+        </div>
+        {{/each}}
+        <div>
+    </script>
+
+</head>
+
+<body class="center">
+    <h1>Your shoes are almost on their way!</h1>
+
+    <div class="row">
+        <div class="col-12"></div>
+    </div>
+
+    <div id="cartArea" class="row center"></div>
+    <div class="row">
+        <div class="col-12  center">
+            <a href="index.html">
+                <button>Continue Shopping</button>
+            </a>
+        </div>
+    </div>
+
+
+</body>
+<script type="text/javascript" src="js/ShoeFactory.js"></script>
+<script type="text/javascript" src="js/cart.js "></script>
+
+<!--<script type="text/javascript" src="js/ShoeDom.js"></script> -->
+
+
+</html>

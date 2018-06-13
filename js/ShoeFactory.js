@@ -60,11 +60,12 @@ var ShoeFactory = function (shoesData) {
     let doSales = function (specs) {
         console.log(specs);
         let tmpShoe = getShoes(specs);
+        console.log(tmpShoe);
         var buyItem = function () {
 
             if (tmpShoe[0].qty > 0) {
                 tmpShoe[0].qty--;
-                storeShoes(shoesData);
+                // storeShoes(shoesData);
                 return tmpShoe
             }
         };

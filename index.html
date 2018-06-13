@@ -3,6 +3,7 @@
 <head>
     <link rel="stylesheet" href="style.css">
     <script type="text/javascript" src="js/shoeData.js "></script>
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
 
 
@@ -20,9 +21,12 @@
             <br> Stock Available : {{this.qty}}
             <br>
             <br>
-            <button value={{this.id}} onclick="buy(this.value)">
+            <button value={{this.id}} onclick="addToCart(this.value)">
                 <i class="fas fa-shopping-cart">Add To Cart</i>
             </button>
+            <a href="cart.html">
+                <button class="checkoutBtn">Check Out</button>
+            </a>
             <br>
         </div>
         {{/each}}
@@ -48,7 +52,7 @@
             Brand
 
             <select id="shoeBrand" class="inline-block">
-                <option value="null">Select Size</option>
+                <option value="null">Select Brand</option>
                 <option class="" id="" value="Adidas">Adidas</option>
                 <option class="" id="" value="Converse">Converse</option>
                 <option class="" id="" value="Fila">Fila</option>
@@ -105,7 +109,9 @@
 </body>
 
 <script type="text/javascript" src="js/ShoeFactory.js"></script>
+<script type="text/javascript" src="js/cart.js "></script>
 <script type="text/javascript" src="js/ShoeDom.js"></script>
+
 
 
 </html>

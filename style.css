@@ -250,11 +250,23 @@ p {
 }
 
 select {
-    font-family: 'FontAwesome'
+    background: white;
+    width: 150px;
+    height: 25px;
+    border: 1px solid black;
+    border-radius: 5px;
 }
 
 .border {
+    /* border: 1px solid black; */
+}
+
+button {
+    background: white;
+    width: 150px;
+    height: 25px;
     border: 1px solid black;
+    border-radius: 5px;
 }
 
 /* .cart {
