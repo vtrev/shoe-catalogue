@@ -42,13 +42,13 @@ var ShoeFactory = function (shoesData) {
     var getShoes = function (specs) {
         var filteredShoes = shoesData.filter(function (shoe) {
 
-            let objectIndex = Object.keys(specs);
+            let objectKeys = Object.keys(specs);
             let holding = 0;
-            for (let i = 0; i < objectIndex.length; i++) {
-                holding += (shoe[objectIndex[i]] == specs[objectIndex[i]])
+            for (let i = 0; i < objectKeys.length; i++) {
+                holding += (shoe[objectKeys[i]] == specs[objectKeys[i]])
             };
 
-            if (holding == objectIndex.length) {
+            if (holding == objectKeys.length) {
                 return true
             }
 
@@ -58,6 +58,7 @@ var ShoeFactory = function (shoesData) {
     //function for buying and returning items
 
     let doSales = function (specs) {
+        console.log(specs);
         let tmpShoe = getShoes(specs);
         var buyItem = function () {
 
@@ -69,10 +70,9 @@ var ShoeFactory = function (shoesData) {
         };
 
         var returnItem = function () {
-            if (tmpShoe[0].qty > 0) {
-                tmpShoe[0].qty++;
-                return tmpShoe
-            }
+            tmpShoe[0].qty++;
+            return tmpShoe
+
         };
         return {
             buyItem,

@@ -6,11 +6,13 @@ let searchBtnElement = document.getElementById('searchButton');
 
 
 function buy(item) {
-    var data = item.spit;
-    console.log(item);
-}
+    console.log(displayShoes(shoes.doSales({
+        id:item
+    }).buyItem()));
+};
 
 let displayShoes = function (shoesToDisplay) {
+    console.log(shoesToDisplay)
     let shoesData = {};
     shoesData['shoes'] = shoesToDisplay.reverse()
     var shoesDataElement = document.getElementById("shoesArea");
