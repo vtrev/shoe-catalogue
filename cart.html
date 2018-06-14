@@ -22,16 +22,17 @@
             <button value={{this.id}} onclick="removeFromCart(this.value)">
                 <i class="fas fa-shopping-cart">Remove from Cart</i>
             </button>
-            <!-- <button onclick="removeFromCart(this.value).checkout">Buy</button> -->
+            <button onclick="nextShoeElement()">Next</button>
             <br>
         </div>
         {{/each}}
         <div>
-    </script>
+            <h1>{{message}}</h1>
 
+    </script>
 </head>
 
-<body class="center">
+<body class="center" onload="displayCart(tmpShoes)">
     <h1>Your shoes are almost on their way!</h1>
 
     <div class="row">
@@ -46,13 +47,8 @@
             </a>
         </div>
     </div>
-
-
 </body>
 <script type="text/javascript" src="js/ShoeFactory.js"></script>
 <script type="text/javascript" src="js/cart.js "></script>
-
-<!--<script type="text/javascript" src="js/ShoeDom.js"></script> -->
-
 
 </html>

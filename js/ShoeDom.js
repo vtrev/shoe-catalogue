@@ -13,7 +13,6 @@ let displayShoes = function (shoesToDisplay) {
     shoesDataElement.innerHTML = shoesHTML;
 };
 
-
 searchBtnElement.addEventListener('click', function search() {
     let shoeBrand = document.getElementById('shoeBrand').value;
     let shoeColor = document.getElementById('shoeColor').value;
