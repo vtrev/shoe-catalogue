@@ -49,16 +49,16 @@ let removeFromCart = function (item) {
         id: item
     });
 
-    // holdingArray.push(shoeToRemove[0]);
+    holdingArray.push(shoeToRemove[0]);
 
     holdingArray = tmpShoes.filter(function (shoe) {
         return shoe.id !== shoeToRemove[0].id
     });
     setTmpShoes();
 
-    // console.log(holdingArray);
-    console.log(tmpShoes);
-    // displayCart(holdingArray);
+    console.log(holdingArray);
+    // console.log(tmpShoes);
+    displayCart(holdingArray);
     // return holdingArray
 
     // console.log(shoeToRemove);
