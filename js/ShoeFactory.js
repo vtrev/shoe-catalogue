@@ -8,7 +8,7 @@ var ShoeFactory = function (shoesData) {
         return JSON.parse(localStorage.getItem('shoesData'));
     };
 
-    //function to more add shoes to the shoeData
+    //function to  add more shoes to the shoeData
     var addShoe = function (shoeObject) {
 
         let existingShoe = shoesData.filter(function (shoeItem) {
