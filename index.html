@@ -3,6 +3,8 @@
 <head>
     <link rel="stylesheet" href="style.css">
     <script type="text/javascript" src="js/shoeData.js "></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
 
@@ -10,20 +12,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
     <script type="text/x-template" id="shoesTemplate">
         {{#each shoes}}
-        <div class=" col-4 inline-block border">
-            Brand : {{this.brand}}
+        <div class=" col-4 inline-block card">
+            <img src="{{this.img-link}}">
+            <br> Brand : {{this.brand}}
             <br> Color : {{this.color}}
             <br>Size : {{this.size}}
             <br>Price : {{this.price}}
             <br> Stock Available : {{this.qty}}
             <br>
-            <br>
             <button value={{this.id}} onclick="addToCart(this.value)">
-                <i class="fas fa-shopping-cart">Add To Cart</i>
+                <i class="fas fa-shopping-cart"></i>
             </button>
-            <a href="cart.html">
-                <button class="checkoutBtn">Check Out</button>
-            </a>
+
             <br>
         </div>
         {{/each}}
@@ -32,27 +32,25 @@
     </script>
 
 </head>
+<div class="row" id="nav-col">
+    <div class="col-4">
+        <a href="index.html">
+            <img src="img/logo.png">
+        </a>
+    </div>
+    <div class="col-8 center">
+        <nav>
+            <a class="" href="#">Home</a>
+            <a href="cart.html">Cart</a>
+            <a href="admin.html">Admin</a>
+        </nav>
+    </div>
+</div>
 
 <body>
-    <h1 class="center" style="color: red;">
-        <i class="fas fa-exclamation-triangle"></i>Please note that this project is still under development
-        <i class="fas fa-exclamation-triangle"></i>
-    </h1>
-    <div class="row">
 
-        <div class="col-12 center">
-            <h1>Shoes Store!</h1>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-12 center">
-            <h3>Pick your specs and hit the search button to find matching shoes</h3>
-        </div>
-    </div>
-    <div class="row center">
-        <div class="col-12">
-            Brand
-
+    <div class="row search-bar">
+        <div class="col-3">
             <select id="shoeBrand" class="inline-block">
                 <option value="null">Select Brand</option>
                 <option class="" id="" value="Adidas">Adidas</option>
@@ -67,7 +65,8 @@
                 <option class="" id="" value="Zara">Zara</option>
 
             </select>
-            Color
+        </div>
+        <div class="col-3">
             <select id="shoeColor" class="inline-block select">
                 <option value="null">Select Color</option>
                 <option class="" id="" value="Black">Black</option>
@@ -83,7 +82,8 @@
 
 
             </select>
-            Size
+        </div>
+        <div class="col-3">
             <select id="shoeSize" class="inline-block">
                 <option value="null">Select Size</option>
                 <option class="" id="" value="1">1</option>
@@ -101,7 +101,10 @@
                 <option class="" id="" value="13">13</option>
 
             </select>
-            <button id="searchButton">Search</button>
+        </div>
+        <div class="col-3">
+            <button id="searchButton">
+                <i class="fas fa-search"></i> Search</button>
         </div>
     </div>
     <div id="shoesArea" class="row center">

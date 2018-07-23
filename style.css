@@ -241,6 +241,21 @@ p {
 
 /*******************************CUSTOM CSS ***********************************************/
 
+/* GLOBAL STYLES */
+
+#searchButton {
+    width: 100px;
+    height: 50px;
+}
+
+.search-bar button {
+    background: white;
+    width: 150px;
+    height: 25px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
 .center {
     text-align: center;
 }
@@ -250,27 +265,106 @@ p {
 }
 
 select {
-    background: white;
-    width: 150px;
-    height: 25px;
+    margin: 0 10px;
+    background-color: #4FA2F5;
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    color: black;
     border: 1px solid black;
-    border-radius: 5px;
+    border-radius: 2px;
 }
 
-.border {
+a {
+    text-decoration: none;
+}
+
+.search-bar {
+    margin-top: 150px;
+    text-align: center;
+}
+
+select.search-bar {}
+
+/* Header */
+
+header {}
+
+/* NAVIGATION BAR */
+
+#nav-col {
+    /* float: right; */
+    height: 90px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: black;
+    padding: 0;
+    z-index: 99;
+}
+
+nav a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 10px 0px;
+    font-size: 20px;
+    color: white;
+    width: 10%;
+    height: 50%;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+nav a:hover {
+    color: black;
+    background-color: #4FA2F5;
     /* border: 1px solid black; */
+    border-radius: 10px;
 }
 
-button {
-    background: white;
-    width: 150px;
-    height: 25px;
-    border: 1px solid black;
-    border-radius: 5px;
+#nav-col img {
+    margin-right: 50px;
 }
 
-/* .cart {
-    position: relative;
-    left: 158px;
-    bottom: 92px;
-} */
+/* END OF NAVIGATION */
+
+/* Shoes Area */
+
+#shoesArea {
+    margin-top: 80px;
+    /* border: 1px solid black; */
+    width: 99%;
+    height: 500px;
+    /* matcth the height with the card height after making card */
+    overflow: auto;
+}
+
+/* End of shoes Area */
+
+/* Product card */
+
+.card {
+    height: 350px;
+    width: 250px;
+    /* border: 1px solid rgb(62, 62, 63); */
+}
+
+.card img {
+    width: 180px;
+    height: 160px;
+}
+
+.card button {
+    /* padding: 10px 10px; */
+    border: none;
+    font-size: 24px;
+    width: 70px;
+    background-color: white;
+    height: 30px;
+    text-align: center;
+}
+
+.card button:hover {
+    border: none;
+    background-color: lime;
+}
