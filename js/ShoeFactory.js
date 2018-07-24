@@ -12,11 +12,8 @@ var ShoeFactory = function (shoesData) {
     var addShoe = function (shoeObject) {
 
         let existingShoe = shoesData.filter(function (shoeItem) {
-            let objectIndex = Object.keys(shoeObject);
+            return shoeItem.id == shoeObject.id;
 
-            for (let i = 0; i < objectIndex.length; i++) {
-                return shoeItem[objectIndex[i]] == shoeObject[objectIndex[i]];
-            };
         });
         //if the shoe does not exist, the length will be 0
         if (existingShoe.length !== 0) {
@@ -24,6 +21,7 @@ var ShoeFactory = function (shoesData) {
             //just gain the qty
             return shoesData
         } else {
+            console.log('new shoe')
             shoesData.push({
                 brand: shoeObject.brand,
                 color: shoeObject.color,
