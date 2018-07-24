@@ -58,9 +58,7 @@ var ShoeFactory = function (shoesData) {
     //function for buying and returning items
 
     let doSales = function (specs) {
-        console.log(specs);
         let tmpShoe = getShoes(specs);
-        console.log(tmpShoe);
         var buyItem = function () {
 
             if (tmpShoe[0].qty > 0) {

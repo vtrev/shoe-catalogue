@@ -1,16 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
     <script type="text/javascript" src="js/shoeData.js "></script>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
-
-    <title>Admin</title>
 </head>
 <div class="row" id="nav-col">
     <div class="col-4">
@@ -27,8 +22,85 @@
     </div>
 </div>
 
+
 <body>
+    <div class="row fisrtP">
+        <div class="col-12 center">
+            <p>This page here allows the admin to add more shoes into the catalogue</p>
+        </div>
+    </div>
+    <div class="row admin-bar">
+        <div class="col-2">
+            <select id="shoeBrand" class="inline-block">
+                <option value="null">Select Brand</option>
+                <option class="" id="" value="Adidas">Adidas</option>
+                <option class="" id="" value="Converse">Converse</option>
+                <option class="" id="" value="Fila">Fila</option>
+                <option class="" id="" value="Jordan">Jordan </option>
+                <option class="" id="" value="Nike">Nike</option>
+                <option class="" id="" value="Puma">Puma</option>
+                <option class="" id="" value="Soviet">Soviet</option>
+                <option class="" id="" value="Timberland">Timberland</option>
+                <option class="" id="" value="Vans">Vans</option>
+                <option class="" id="" value="Zara">Zara</option>
+
+            </select>
+        </div>
+        <div class="col-2">
+            <select id="shoeColor" class="inline-block select">
+                <option value="null">Select Color</option>
+                <option class="" id="" value="Black">Black</option>
+                <option class="" id="" value="Blue">Blue</option>
+                <option class="" id="" value="Brown">Brown</option>
+                <option class="" id="" value="Cream">Cream</option>
+                <option class="" id="" value="Green">Green</option>
+                <option class="" id="" value="Orange">Orange</option>
+                <option class="" id="" value="Pink">Pink</option>
+                <option class="" id="" value="Purple">Purple</option>
+                <option class="" id="" value="White">White</option>
+                <option class="" id="" value="Yellow">Yellow</option>
+
+
+            </select>
+        </div>
+        <div class="col-2">
+            <select id="shoeSize" class="inline-block">
+                <option value="null">Select Size</option>
+                <option class="" id="" value="1">1</option>
+                <option class="" id="" value="2">2</option>
+                <option class="" id="" value="3">3</option>
+                <option class="" id="" value="4">4</option>
+                <option class="" id="" value="5">5</option>
+                <option class="" id="" value="6">6</option>
+                <option class="" id="" value="7">7</option>
+                <option class="" id="" value="8">8</option>
+                <option class="" id="" value="9">9</option>
+                <option class="" id="" value="10">10</option>
+                <option class="" id="" value="11">11</option>
+                <option class="" id="" value="12">12</option>
+                <option class="" id="" value="13">13</option>
+
+            </select>
+        </div>
+        <div class="col-2 ">
+            <span class="admin-bar-text">R</span>
+            <input type="number" id="new-shoe-price">
+        </div>
+        <div class="col-2">
+            <span class="admin-bar-text">Qty</span>
+            <input id="new-shoe-qty" type="number">
+        </div>
+        <div class="col-2">
+            <button id="addButton">
+                <i class="fas fa-plus"></i> Add Shoe</button>
+        </div>
+    </div>
+    </div>
 
 </body>
+
+<script type="text/javascript" src="js/ShoeFactory.js"></script>
+<script type="text/javascript" src="js/cart.js "></script>
+<script type="text/javascript" src="js/ShoeDom.js"></script>
 
 </html>
