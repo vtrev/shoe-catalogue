@@ -386,7 +386,6 @@ nav a:hover {
 .card {
     height: 350px;
     width: 250px;
-    /* border: 1px solid rgb(62, 62, 63); */
 }
 
 .card img {
@@ -408,4 +407,9 @@ nav a:hover {
     border: none;
     border-radius: 25px;
     background-color: lime;
+}
+
+#border {
+    border: 2px solid rgb(62, 62, 63);
+    margin: 10px;
 }

@@ -9,18 +9,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
     <script type="text/x-template" id="cartTemplate">
         {{#each shoes}}
-        <div class=" col-4 inline-block border">
-            Brand : {{this.brand}}
+        <div id="border" class=" col-4 inline-block card">
+            <img src="{{this.img-link}}">
+            <br> Brand : {{this.brand}}
             <br> Color : {{this.color}}
             <br>Size : {{this.size}}
             <br>Price : {{this.price}}
             <br> Stock Available : {{this.qty}}
             <br>
-            <br>
-            <button value={{this.id}} onclick="removeFromCart(this.value)">
-                <i class="fas fa-shopping-cart">Remove from Cart</i>
+            <button value={{this.id}} onclick="addToCart(this.value)">
+                <i class="fas fa-minus-circle"></i>
             </button>
-            <button onclick="nextShoeElement()">Next</button>
+
             <br>
         </div>
         {{/each}}
