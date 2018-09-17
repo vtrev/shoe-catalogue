@@ -48,102 +48,102 @@ describe('getShoes function', function () {
 
 
 
-describe('doSales function(buying an item)', function () {
-    it('Given shoe specifications, the function should reduce the quantity of the shoe in question by 1', function () {
-        let testData = [{
-            brand: "Adidas",
-            color: "Pink",
-            price: 800,
-            id: 0,
-            qty: 15,
-            size: 7
-        }, {
-            brand: "Jordan",
-            color: "Pink",
-            id: 1,
-            price: 999,
-            qty: 5,
-            size: 6
-        }];
+// describe('doSales function(buying an item)', function () {
+//     it('Given shoe specifications, the function should reduce the quantity of the shoe in question by 1', function () {
+//         let testData = [{
+//             brand: "Adidas",
+//             color: "Pink",
+//             price: 800,
+//             id: 0,
+//             qty: 15,
+//             size: 7
+//         }, {
+//             brand: "Jordan",
+//             color: "Pink",
+//             id: 1,
+//             price: 999,
+//             qty: 5,
+//             size: 6
+//         }];
 
 
-        let shoeSpecs = {
-            brand: 'Jordan',
-            color: 'Pink',
-            id: 0,
-            size: 6
-        };
-        let expectedOutput = [{
-            brand: 'Jordan',
-            color: 'Pink',
-            price: 999,
-            id: 1,
-            qty: 4,
-            size: 6
-        }];
-        assert.deepEqual(ShoeFactory(testData).doSales({
-            id: 1
-        }).buyItem(), expectedOutput);
-    });
-});
-describe('doSales function (returning an item)', function () {
-    it('Given shoe specifications, the function should increase (return the item ) quantity of the shoe in question by 1', function () {
-        let testData = [{
-            brand: "Adidas",
-            color: "Pink",
-            id: 0,
-            price: 800,
-            qty: 15,
-            size: 7
-        }, {
-            brand: "Jordan",
-            color: "Pink",
-            id: 1,
-            price: 999,
-            qty: 5,
-            size: 6
-        }];
+//         let shoeSpecs = {
+//             brand: 'Jordan',
+//             color: 'Pink',
+//             id: 0,
+//             size: 6
+//         };
+//         let expectedOutput = [{
+//             brand: 'Jordan',
+//             color: 'Pink',
+//             price: 999,
+//             id: 1,
+//             qty: 4,
+//             size: 6
+//         }];
+//         assert.deepEqual(ShoeFactory(testData).doSales({
+//             id: 1
+//         }).buyItem(), expectedOutput);
+//     });
+// });
+// describe('doSales function (returning an item)', function () {
+//     it('Given shoe specifications, the function should increase (return the item ) quantity of the shoe in question by 1', function () {
+//         let testData = [{
+//             brand: "Adidas",
+//             color: "Pink",
+//             id: 0,
+//             price: 800,
+//             qty: 15,
+//             size: 7
+//         }, {
+//             brand: "Jordan",
+//             color: "Pink",
+//             id: 1,
+//             price: 999,
+//             qty: 5,
+//             size: 6
+//         }];
 
-        let expectedOutput = [{
-            brand: 'Adidas',
-            color: 'Pink',
-            price: 800,
-            id: 0,
-            qty: 16,
-            size: 7
-        }];
+//         let expectedOutput = [{
+//             brand: 'Adidas',
+//             color: 'Pink',
+//             price: 800,
+//             id: 0,
+//             qty: 16,
+//             size: 7
+//         }];
 
-        assert.deepEqual(ShoeFactory(testData).doSales({
-            id: 0
-        }).returnItem(), expectedOutput);
-    });
-});
+//         assert.deepEqual(ShoeFactory(testData).doSales({
+//             id: 0
+//         }).returnItem(), expectedOutput);
+//     });
+// });
 
-describe('addShoe function', function () {
+// describe('addShoe function', function () {
 
-    it('given specifications brand,color,price,quantity and size, it should be able to append the new shoe object into the shoes Data array', function () {
+//     it('given specifications brand,color,price,quantity and size, it should be able to append the new shoe object into the shoes Data array', function () {
 
-        let testData = [{
-            brand: 'Timberland',
-            color: 'Brown',
-            id: 9,
-            price: 3500,
-            qty: 5,
-            size: 8
-        }];
+//         let testData = [{
+//             brand: 'Timberland',
+//             color: 'Brown',
+//             id: 9,
+//             price: 3500,
+//             qty: 5,
+//             size: 8
+//         }];
 
-        let shoeToAdd = [{
-            brand: 'Jordan',
-            color: 'Pink',
-            id: 9,
-            price: 999,
-            qty: 5,
-            size: 6
+//         let shoeToAdd = [{
+//             brand: 'Jordan',
+//             color: 'Pink',
+//             id: 9,
+//             price: 999,
+//             qty: 5,
+//             size: 6
 
-        }];
-        let newData = testData.concat(shoeToAdd);
-        assert.deepEqual(ShoeFactory(testData).addShoe(shoeToAdd[0]), newData);
+//         }];
+//         let newData = testData.concat(shoeToAdd);
+//         assert.deepEqual(ShoeFactory(testData).addShoe(shoeToAdd[0]), newData);
 
 
-    });
-});
+//     });
+// });
