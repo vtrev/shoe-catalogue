@@ -1,7 +1,6 @@
 shoes = ShoeFactory(shoesArray);
 
 let searchBtnElement = document.getElementById('searchButton');
-let addBtnElement = document.getElementById('addButton');
 
 let displayShoes = function (shoesToDisplay) {
     let shoesData = {};
@@ -30,27 +29,3 @@ searchBtnElement.addEventListener('click', function search() {
     displayShoes(shoes.getShoes(specs));
 
 });
-
-// // addBtnElement.addEventListener('click', function addShoe() {
-// //     alert('add button pressed!');
-// //     console.log('anything');
-// //     let addShoeBrand = document.getElementById('addShoeBrand').value;
-// //     let addShoeColor = document.getElementById('addShoeColor').value;
-// //     let addShoeSize = document.getElementById('addShoeSize').value;
-// //     let addSpecs = {};
-// //     if (addShoeBrand !== 'null') {
-// //         addSpecs.brand = addShoeBrand
-
-// //         if (addShoeColor !== 'null') {
-// //             addSpecs.color = addShoeColor
-// //             if (addShoeSize !== 'null') {
-// //                 addSpecs.size = addShoeSize
-// //             }
-// //         }
-// //     } else {
-// //         alert('shoeAdd fail');
-// //     }
-
-
-
-// });

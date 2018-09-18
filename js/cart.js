@@ -1,6 +1,6 @@
 shoes = ShoeFactory(shoesArray);
 
-let holdingArray = [];
+let holdingArray = [{}];
 
 let setTmpShoes = function () {
     localStorage.setItem('tmpShoes', JSON.stringify(holdingArray));
@@ -32,10 +32,6 @@ let addToCart = function (item) {
     let shoeToAdd = shoes.getShoes({
         id: item
     });
-
-
-    holdingArray.push(shoeToAdd[0]);
-
     let checkOut = function () {
         shoes.doSales(shoeToAdd[0]).buyItem();
         setTmpShoes();
@@ -43,8 +39,19 @@ let addToCart = function (item) {
         return shoeToAdd
     }
 
+    if (!holdingArray.some(function (shoe) {
+            return shoe === shoeToAdd[0];
+        })) {
+        holdingArray.push(shoeToAdd[0]);
+        checkOut();
+    } else {
+        console.log('shoe already in cart')
+    };
+
+
+
     return {
-        checkout: checkOut()
+        checkout: checkOut
     }
 
 };
