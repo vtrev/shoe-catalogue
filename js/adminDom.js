@@ -1,6 +1,6 @@
+let shoes = ShoeFactory(shoesArray);
+
 let addBtnElement = document.getElementById('addButton');
-
-
 addBtnElement.addEventListener('click', function run() {
     let addShoeBrand = document.getElementById('addShoeBrand').value;
     let addShoeColor = document.getElementById('addShoeColor').value;
@@ -15,8 +15,11 @@ addBtnElement.addEventListener('click', function run() {
         addSpecs.price = addShoePrice;
         addSpecs.qty = addShoeQty;
         addSpecs.size = addShoeSize;
+        addSpecs["img-link"] = 'img/no-img.png';
+        shoes.addShoe(addSpecs);
+        alert('Shoe added successfully');
     };
-    // now store the new shoe into the array
-    console.log(addSpecs);
+
+
 
 });

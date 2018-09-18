@@ -1,4 +1,16 @@
-shoes = ShoeFactory(shoesArray);
+let localShoes = JSON.parse(localStorage.getItem('shoesData'));
+
+
+// let shoes = ShoeFactory(localShoes) || ShoeFactory(shoesArray);
+let shoes;
+console.log(localShoes);
+if (localShoes) {
+    console.log('found local shoes')
+    shoes = ShoeFactory(localShoes);
+} else {
+    shoes = ShoeFactory(shoesArray);
+}
+
 
 let searchBtnElement = document.getElementById('searchButton');
 
@@ -26,6 +38,8 @@ searchBtnElement.addEventListener('click', function search() {
     if (shoeSize !== 'null') {
         specs.size = shoeSize
     }
+
+    console.log(shoes.getShoes(specs));
     displayShoes(shoes.getShoes(specs));
 
 });
