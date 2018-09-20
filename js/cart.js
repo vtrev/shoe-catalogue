@@ -1,15 +1,21 @@
 // shoes = ShoeFactory(shoesArray);
 
-let holdingArray = [{}];
 
-let setTmpShoes = function () {
-    localStorage.setItem('tmpShoes', JSON.stringify(holdingArray));
+let cart = JSON.parse(localStorage.getItem('cart'));
+
+if (cart) {
+    console.log('Found some shoes in the cart');
+    console.log(cart);
+
+} else {
+    console.log('this cart is empty');
 }
 
-let getTmpShoes = function () {
-    return JSON.parse(localStorage.getItem('tmpShoes'));
-};
-let tmpShoes = getTmpShoes();
+
+
+let tmpCart = JSON.parse(localStorage.getItem('cart'));
+
+// let tmpCart = getTmpShoes();
 
 
 let displayCart = function (shoesToDisplay) {
@@ -28,36 +34,36 @@ let displayCart = function (shoesToDisplay) {
 
 
 
-let removeFromCart = function (item) {
-    let shoeToRemove = shoes.getShoes({
-        id: item
-    });
-    tmpShoes = tmpShoes.filter(function (shoe) {
-        return shoe.id !== shoeToRemove[0].id
-    });
-    setTmpShoes();
+// let removeFromCart = function (item) {
+//     let shoeToRemove = shoes.getShoes({
+//         id: item
+//     });
+//     tmpShoes = tmpShoes.filter(function (shoe) {
+//         return shoe.id !== shoeToRemove[0].id
+//     });
+//     setTmpShoes();
 
-    if (tmpShoes.length > 0) {
-        displayCart(tmpShoes);
-    } else {
-        displayCart('Cart Empty!')
-    }
-};
-
-
-// ==============================the code below will be used for a sliding cart in future===================================//
-
-// var maxHoldingArrayIndex = holdingArray.length
-// var shoeElementIndex = 1;
-
-// function nextShoeElement() {
-//     shoeElementIndex += 1;
-//     if (shoeElementIndex > maxHoldingArrayIndex) {
-//         shoeElementIndex = 0;
-//     }
-//     if (tmpShoes[shoeElementIndex]) {
-//         displayCart([tmpShoes[shoeElementIndex]]);
+//     if (tmpShoes.length > 0) {
+//         displayCart(tmpShoes);
 //     } else {
-//         displayCart('Cart Empty!');
+//         displayCart('Cart Empty!')
 //     }
-// }
+// };
+
+
+// // ==============================the code below will be used for a sliding cart in future===================================//
+
+// // var maxHoldingArrayIndex = holdingArray.length
+// // var shoeElementIndex = 1;
+
+// // function nextShoeElement() {
+// //     shoeElementIndex += 1;
+// //     if (shoeElementIndex > maxHoldingArrayIndex) {
+// //         shoeElementIndex = 0;
+// //     }
+// //     if (tmpShoes[shoeElementIndex]) {
+// //         displayCart([tmpShoes[shoeElementIndex]]);
+// //     } else {
+// //         displayCart('Cart Empty!');
+// //     }
+// // }

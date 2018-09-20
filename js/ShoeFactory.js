@@ -1,5 +1,4 @@
 let ShoeFactory = function (shoesData) {
-    console.log(shoesData);
 
     let getShoes = function (specs) {
         let filteredShoes = shoesData.filter(function (shoe) {
@@ -19,20 +18,20 @@ let ShoeFactory = function (shoesData) {
 
     // ============================================= ADD TO CART ====================================================== //
     let addToCart = function (item) {
-        let holdingArray = [];
-        let shoeToAdd = shoes.getShoes({
+        let tmpCart = JSON.parse(localStorage.getItem('cart')) || [];
+        let shoeToAdd = getShoes({
             id: item
         });
-        if (!holdingArray.some(function (shoe) {
-                return shoe === shoeToAdd[0];
+
+        if (!tmpCart.some(function (shoe) {
+                return shoe.id === shoeToAdd[0].id;
             })) {
-            holdingArray.push(shoeToAdd[0]);
-            shoes.doSales(shoeToAdd[0]).buyItem();
-        } else {
-            console.log('shoe already in cart')
-        };
-        return {
-            checkout: checkOut
+            if (shoeToAdd[0].qty > 0) {
+                shoeToAdd[0].qty--;
+                tmpCart.push(shoeToAdd[0]);
+                localStorage.setItem('shoesData', JSON.stringify(shoesData));
+                localStorage.setItem('cart', JSON.stringify(tmpCart));
+            };
         };
     };
 
@@ -61,10 +60,12 @@ let ShoeFactory = function (shoesData) {
     // function to  add more shoes to the shoeData
 
     let addShoe = function (shoeObject) {
+
         let existingShoe = shoesData.filter(function (shoeItem) {
             return shoeItem.id == shoeObject.id;
         });
         //if the shoe does not exist, the length will be 0
+        console.log(existingShoe);
         if (existingShoe.length !== 0) {
             console.log('shoe already added');
             //just gain the qty

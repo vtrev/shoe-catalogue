@@ -127,7 +127,7 @@ describe('addShoe function', function () {
         let testData = [{
             brand: 'Timberland',
             color: 'Brown',
-            id: 9,
+            id: 100,
             price: 3500,
             qty: 5,
             size: 8
@@ -135,16 +135,15 @@ describe('addShoe function', function () {
 
         let shoeToAdd = [{
             brand: 'Nike',
-            color: 'White',
-            id: 7,
-            price: 2000,
-            qty: 15,
+            color: 'Black',
+            id: 101,
+            price: 500,
+            qty: 9,
             size: 8
-
         }];
         let newData = testData.concat(shoeToAdd);
+        // console.log(typeof (ShoeFactory(testData).addShoe(shoeToAdd[0])));
+        // console.log(typeof (newData));
         assert.deepEqual(ShoeFactory(testData).addShoe(shoeToAdd[0]), newData);
-
-
     });
 });
