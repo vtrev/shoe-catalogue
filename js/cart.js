@@ -1,11 +1,13 @@
-// shoes = ShoeFactory(shoesArray);
+let shoesData = JSON.parse(localStorage.getItem('shoesData'));
 
+shoes = ShoeFactory(shoesData);
 
+// console.log(shoesData);
 let cart = JSON.parse(localStorage.getItem('cart'));
 
 if (cart) {
     console.log('Found some shoes in the cart');
-    console.log(cart);
+    // console.log(cart);
 
 } else {
     console.log('this cart is empty');
@@ -31,6 +33,41 @@ let displayCart = function (shoesToDisplay) {
     var cartHTML = cartTemplate(cartData);
     cartDataElement.innerHTML = cartHTML;
 };
+
+
+// ============================================= REMOVE FROM CART ====================================================== //
+let removeFromCart = function (item) {
+    let tmpCart = JSON.parse(localStorage.getItem('cart'));
+    console.log(item)
+    let shoeToRemove = shoes.getShoes({
+        id: item
+    });
+    console.log(tmpCart);
+    console.log(shoeToRemove);
+    // shoeToAdd[0].qty++;
+    shoeIndex = tmpCart.indexOf(shoeToRemove);
+    console.log(shoeIndex);
+    // tmpCart.push(shoeToAdd[0]);
+    // localStorage.setItem('shoesData', JSON.stringify(shoesData));
+    // localStorage.setItem('cart', JSON.stringify(tmpCart));
+
+
+
+
+
+
+
+    // if (!tmpCart.some(function (shoe) {
+    //         return shoe.id === shoeToAdd[0].id;
+    //     })) {
+    //     if (shoeToAdd[0].qty > 0) {
+
+    //     };
+    // };
+};
+
+
+
 
 
 

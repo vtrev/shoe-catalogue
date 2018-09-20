@@ -91,9 +91,9 @@ let ShoeFactory = function (shoesData) {
 
 
     // ====================================== STORE SHOES TO LOCAL STORAGE ===========================================\
-    let storeShoes = function (shoesToStore) {
-        localStorage.setItem('shoesData', JSON.stringify(shoesToStore));
-    };
+    // let storeShoes = function (shoesToStore) {
+    //     localStorage.setItem('shoesData', JSON.stringify(shoesToStore));
+    // };
 
     // let getStoredShoes = function () {
     //     return 
