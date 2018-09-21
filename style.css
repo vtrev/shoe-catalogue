@@ -257,6 +257,13 @@ p {
 /*******************************CUSTOM CSS ***********************************************/
 
 /* GLOBAL STYLES */
+button,
+input:focus,
+button,
+input:active {
+    outline: none !important;
+    box-shadow: none;
+}
 
 ::-webkit-scrollbar {
     display: none;

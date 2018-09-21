@@ -1,6 +1,10 @@
 let ShoeFactory = function (shoesData) {
 
     let getShoes = function (specs) {
+
+        if (!specs.id) {
+            localStorage.setItem('specs', JSON.stringify(specs));
+        }
         let filteredShoes = shoesData.filter(function (shoe) {
             let objectKeys = Object.keys(specs);
             let holding = 0;
@@ -29,6 +33,7 @@ let ShoeFactory = function (shoesData) {
                 localStorage.setItem('shoesData', JSON.stringify(shoesData));
                 localStorage.setItem('cart', JSON.stringify(tmpCart));
             };
+
         };
     };
 
@@ -79,6 +84,7 @@ let ShoeFactory = function (shoesData) {
             });
             localStorage.setItem('shoesData', JSON.stringify(shoesData));
         };
+        // return 
     };
     return {
 

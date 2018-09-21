@@ -106,6 +106,9 @@ let searchBtnElement = document.getElementById('searchButton');
 
 let addToCart = function (shoe) {
     shoes.addToCart(shoe);
+    let prevSpecs = JSON.parse(localStorage.getItem('specs'));
+    displayShoes(shoes.getShoes(prevSpecs));
+
 }
 
 let displayShoes = function (shoesToDisplay) {
@@ -123,15 +126,18 @@ searchBtnElement.addEventListener('click', function search() {
     let shoeColor = document.getElementById('shoeColor').value;
     let shoeSize = document.getElementById('shoeSize').value;
     let specs = {};
-    if (shoeBrand !== 'null') {
-        specs.brand = shoeBrand
+    try {
+        if (shoeBrand !== 'null') {
+            specs.brand = shoeBrand
+        }
+        if (shoeColor !== 'null') {
+            specs.color = shoeColor
+        }
+        if (shoeSize !== 'null') {
+            specs.size = shoeSize
+        }
+    } finally {
+        displayShoes(shoes.getShoes(specs));
     }
-    if (shoeColor !== 'null') {
-        specs.color = shoeColor
-    }
-    if (shoeSize !== 'null') {
-        specs.size = shoeSize
-    }
-    displayShoes(shoes.getShoes(specs));
 
 });
