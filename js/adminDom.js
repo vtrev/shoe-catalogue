@@ -1,5 +1,5 @@
-let shoes = ShoeFactory(shoesArray);
-
+let shoesData = JSON.parse(localStorage.getItem('shoesData'));
+let shoes = ShoeFactory(shoesData);
 let addBtnElement = document.getElementById('addButton');
 addBtnElement.addEventListener('click', function run() {
     let addShoeBrand = document.getElementById('addShoeBrand').value;
@@ -11,7 +11,7 @@ addBtnElement.addEventListener('click', function run() {
     if ((addShoeBrand !== "null") && (addShoeColor !== "null") && (addShoeSize !== "null") && (addShoeQty !== "") && (addShoePrice !== "")) {
         addSpecs.brand = addShoeBrand;
         addSpecs.color = addShoeColor;
-        addSpecs.id = shoesArray.length;
+        addSpecs.id = shoesData.length;
         addSpecs.price = addShoePrice;
         addSpecs.qty = addShoeQty;
         addSpecs.size = addShoeSize;
@@ -19,7 +19,5 @@ addBtnElement.addEventListener('click', function run() {
         shoes.addShoe(addSpecs);
         alert('Shoe added successfully');
     };
-
-
 
 });

@@ -7,15 +7,12 @@ let ShoeFactory = function (shoesData) {
             for (let i = 0; i < objectKeys.length; i++) {
                 holding += (shoe[objectKeys[i]] == specs[objectKeys[i]])
             };
-
             if (holding == objectKeys.length) {
                 return true
-            }
+            };
         });
         return filteredShoes;
     };
-
-
     // ============================================= ADD TO CART ====================================================== //
     let addToCart = function (item) {
         let tmpCart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -54,8 +51,6 @@ let ShoeFactory = function (shoesData) {
             returnItem
         };
     };
-
-
     // ============================================ADD SHOE================================================================== //
     // function to  add more shoes to the shoeData
 
@@ -65,7 +60,6 @@ let ShoeFactory = function (shoesData) {
             return shoeItem.id == shoeObject.id;
         });
         //if the shoe does not exist, the length will be 0
-        console.log(existingShoe);
         if (existingShoe.length !== 0) {
             console.log('shoe already added');
             //just gain the qty
@@ -80,39 +74,17 @@ let ShoeFactory = function (shoesData) {
                 size: shoeObject.size,
                 "img-link": shoeObject["img-link"]
             });
-            // console.log(shoesData)
-            storeShoes(shoesData);
-
-            return shoesData
+            let addedShoe = getShoes({
+                id: shoeObject.id
+            });
+            localStorage.setItem('shoesData', JSON.stringify(shoesData));
         };
-
     };
-
-
-
-    // ====================================== STORE SHOES TO LOCAL STORAGE ===========================================\
-    // let storeShoes = function (shoesToStore) {
-    //     localStorage.setItem('shoesData', JSON.stringify(shoesToStore));
-    // };
-
-    // let getStoredShoes = function () {
-    //     return 
-    // };
-
-
-    // match the specs and return the  shoe needed by the customer
-
-    //function for buying and returning items
-
-
     return {
 
         getShoes,
-        doSales,
         addToCart,
-        addShoe,
-        // storeShoes,
-        // getStoredShoes
+        addShoe
     }
 
 };
